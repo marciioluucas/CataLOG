@@ -15,12 +15,8 @@ if ($_SESSION["tempo"] < time()) {
     $_SESSION["tempo"] = time() + 600;
 }
 ?>
-
 <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <script>
-    $(window).resize(function () {
-        $("body").setHeight($(window).height());
-    });
     $(window).load(function () {
         $('#preloader').hide();//1500 é a duração do efeito (1.5 seg)
         $('#preLoaderModal').modal('hide');

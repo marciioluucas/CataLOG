@@ -670,7 +670,7 @@ if ($_SESSION["tempo"] < time()) {
 
 
             });
-            $("#preview-da-imagem").attr('src', "../imagens/noimg.png");
+            $("#preview-da-imagemPrincipal").attr('src', "../imagens/noimg.png");
         }});
 
     $("#excluir1").click(function () {

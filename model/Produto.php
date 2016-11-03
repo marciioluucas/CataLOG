@@ -225,7 +225,7 @@ class Produto extends Banco
     function excluirProduto($id)
     {
         try {
-            return $this->delete("produto", "ativado = 0, dataexcusao=" . date('Y-m-d'), "id=$id");
+            return $this->delete("produto", "ativado = 0, dataexclusao=" . date('Y-m-d'), "id=$id");
         } catch (Exception $e) {
             echo "Exceção capturada: " . $e->getMessage();
             return null;
