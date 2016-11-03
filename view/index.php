@@ -11,17 +11,7 @@ $menuController = new MenuController();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CataLOG v1.<?php
-        $ponteiro = fopen("\\xampp\\htdocs\\CataLOG\\catalogv10\\versao", "r");
-
-        feof($ponteiro);
-
-        $linha = fgets($ponteiro, 4096);
-        echo $linha;
-
-        fclose($ponteiro)
-
-        ?> | Dashboard</title>
+    <title>CataLOG v1.0 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="theme-color" content="#78ae22">
@@ -121,7 +111,7 @@ $menuController = new MenuController();
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" id="botaoNav" data-toggle="offcanvas" role="button"
-               onclick="diminuiMarginIframe()">
+               onclick="">
                 <span class="sr-only">Toggle navigation</span>
             </a>
             <div class="navbar-custom-menu">
@@ -231,17 +221,7 @@ $menuController = new MenuController();
                     of Salatiel Group</a>.</strong> All rights reserved.
 <span class="pull-right">
 
-                <b>Versão 1.0.0.<?php
-                    $ponteiro = fopen("\\xampp\\htdocs\\CataLOG\\catalogv10\\versao", "r");
-
-                    feof($ponteiro);
-
-                    $linha = fgets($ponteiro, 4096);
-                    echo $linha . "</b>";
-
-                    fclose($ponteiro)
-
-                    ?>
+                <b>Versão 1.0</b>
 </span>
         </footer>
     </div>
@@ -260,10 +240,6 @@ $menuController = new MenuController();
 </script>
 <!-- Bootstrap 3.3.5 -->
 <script src="../bootstrap/js/bootstrap.min.js"></script>
-<!--<!-- Morris.js charts -->-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
-<!--<script src="../plugins/morris/morris.min.js"></script>-->
-<!-- Sparkline -->
 <script src="../plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
 <script src="../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>

@@ -7,6 +7,9 @@
 -- Versão do servidor: 5.5.49-cll-lve
 -- Versão do PHP: 5.6.20
 
+
+CREATE DATABASE IF NOT EXISTS bd_catalogo;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -19,7 +22,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bd_catalogo`
 --
-CREATE DATABASE IF NOT EXISTS bd_catalogo;
 
 -- --------------------------------------------------------
 

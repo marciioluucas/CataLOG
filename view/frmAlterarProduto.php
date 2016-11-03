@@ -587,6 +587,7 @@ if ($_SESSION["tempo"] < time()) {
             var ang = 90;
             $("#preview-da-imagemPrincipal").rotate(ang * i);
             $("#angImgPrincipal").val($('#preview-da-imagemPrincipal').getRotateAngle());
+            alert($("#angImgPrincipal").val());
             i++;
         });
 

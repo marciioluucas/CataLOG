@@ -146,9 +146,9 @@ class Banco
     private function conexao()
     {
 
-        $this->host = "";
-        $this->banco = "";
-        $this->usuario = "";
+        $this->host = "localhost";
+        $this->banco = "bd_catalogo";
+        $this->usuario = "root";
         $this->senha = "";
 
         if (mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco)) {
