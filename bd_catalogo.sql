@@ -19,6 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bd_catalogo`
 --
+CREATE DATABASE IF NOT EXISTS bd_catalogo;
 
 -- --------------------------------------------------------
 
