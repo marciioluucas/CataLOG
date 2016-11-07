@@ -5,21 +5,21 @@
       "descricao":"Produtos",
       "icone":"fa-shopping-cart",
       "imagemIcone":"",
-      "permissao":"1",
+      "permissao":"2",
       "menuList":[
         {
           "codigo":"3",
           "descricao":"Cadastro de produtos",
           "icone":"fa-cart-plus",
           "url":"frmCadastroProduto.php",
-          "permissao":"1"
+          "permissao":"2"
         },
         {
           "codigo":"3",
           "descricao":"Lista de produtos",
           "icone":"fa-list-alt",
           "url":"../controller/ProdutoController.php?q=listar",
-          "permissao":"1"
+          "permissao":"2"
         },
         {
           "codigo":"4",
@@ -27,21 +27,21 @@
           "icone":"fa-bars",
           "imagemIcone":"",
           "url":"#",
-          "permissao":"1",
+          "permissao":"2",
           "menuList":[
             {
               "codigo":"5",
               "descricao":"Cadastro de categorias",
               "icone":"fa-plus-circle",
               "url":"frmCadastroCategoria.php",
-              "permissao":"1"
+              "permissao":"2"
             },
             {
               "codigo":"6",
               "descricao":"Lista de categorias",
               "icone":"fa-list-alt",
               "url":"../controller/CategoriaController.php?q=listar",
-              "permissao":"1"
+              "permissao":"2"
             }
           ]
         },
@@ -51,21 +51,21 @@
           "icone":"fa-bars",
           "imagemIcone":"",
           "url":"#",
-          "permissao":"1",
+          "permissao":"2",
           "menuList":[
             {
               "codigo":"8",
               "descricao":"Cadastro de seção",
               "icone":"fa-plus-circle",
               "url":"frmCadastroSecao.php",
-              "permissao":"1"
+              "permissao":"2"
             },
             {
               "codigo":"9",
               "descricao":"Lista de seções",
               "icone":"fa-list-alt",
               "url":"../controller/SecaoController.php?q=listar",
-              "permissao":"1"
+              "permissao":"2"
             }
           ]
         }
@@ -99,21 +99,21 @@
       "descricao":"Empresas MASTER",
       "icone":"",
       "imagemIcone":"",
-      "permissao":"6",
+      "permissao":"99",
       "menuList":[
         {
           "codigo":"14",
           "descricao":"Cadastro de empresa",
           "icone":"",
           "url":"",
-          "permissao":"3"
+          "permissao":"99"
         },
         {
           "codigo":"15",
           "descricao":"Listar empresas",
           "icone":"",
           "url":"",
-          "permissao":"3"
+          "permissao":"99"
         }
       ]
     },

@@ -114,7 +114,7 @@ class Menu
 
     public function listarMenu($permissao)
     {
-        $json = "../sources/jsons/menu.json";
+        $json = "../sources/jsons/menus.json";
         $info = file_get_contents($json);
 
         $filhoDoJ = json_decode($info);

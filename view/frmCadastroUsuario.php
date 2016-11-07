@@ -137,22 +137,28 @@ $clienteController = new ClienteController();
                                placeholder="Coloque aqui o nome">
                     </div>
                     <div class="form-group">
-                        <label for="usuarioMarca">E-mail</label>
-                        <input type="text" class="form-control" id="usuarioMarca" name="usuarioEmail" required
+                        <label for="usuarioEmail">E-mail</label>
+                        <input type="text" class="form-control" id="usuarioEmail" name="usuarioEmail" required
                                placeholder="Coloque aqui a e-mail">
                     </div>
 
                     <div class="form-group">
-                        <label for="usuarioModelo">Login</label>
-                        <input type="text" class="form-control" id="usuarioModelo" name="usuarioLogin" required
+                        <label for="usuarioLogin">Login</label>
+                        <input type="text" class="form-control" id="usuarioLogin" name="usuarioLogin" required
                                placeholder="Coloque aqui o login">
                     </div>
 
                     <div class="form-group">
                         <label for="usuarioDescricao">Senha</label>
-                        <input type="password" class="form-control" id="usuarioDescricao" name="usuarioSenha" required
-                               placeholder="Coloque aqui a senha"
-                        >
+                        <input type="password" class="form-control" id="usuarioSenha" name="usuarioSenha" required
+                               placeholder="Coloque aqui a senha">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usuarioDescricao">Senha</label>
+                        <select name="usuarioNivel" id="usuarioNivel">
+
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -165,7 +171,7 @@ $clienteController = new ClienteController();
                             ou .png</p>
                         <div class="col-lg-12 text-left"><img src="../imagens/noimg.png" id="preview-da-imagem"
                                                               width="190"
-                                                              height="190" class="img-circle"></div>
+                                                              height="190" class="img-circle img-responsive"></div>
 
 
                     </div>
