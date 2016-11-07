@@ -285,7 +285,7 @@ class Banco
 
 
             for ($i = 0; $i < $cont - $this->subQntColunasConsulTabela; $i++) {
-                echo "<th>" . ucfirst($this->campos[$i]) . "</th>";
+                echo "<th>" . str_replace("_"," ", ucfirst($this->campos[$i])) . "</th>";
             }
             echo "<th>Ações</th>";
             echo " </tr>
@@ -316,7 +316,7 @@ class Banco
             $cont = count($this->campos);
             for ($i = 0; $i < $cont - $this->subQntColunasConsulTabela; $i++) {
                 echo "
-                        <th>" . ucfirst($this->campos[$i]) . "</th> ";
+                        <th>" . str_replace("_"," ", ucfirst($this->campos[$i])) . "</th> ";
             }
             echo " </tr>
                     </tfoot>
