@@ -155,11 +155,20 @@ $clienteController = new ClienteController();
                     </div>
 
                     <div class="form-group">
-                        <label for="usuarioDescricao">Senha</label>
-                        <select name="usuarioNivel" id="usuarioNivel">
+                        <label for="usuarioNivel">Nível</label>
+                        <div class="input-group" style="margin-top: -3px !important;">
+                            <span class="input-group-addon" id="Lupa" style="height: 34px !important;"><i
+                                    class="fa fa-search" aria-hidden="true"></i></span>
+                            <select class="form-control select2"
+                                    style="width: 100%; border-radius: 0 !important; display: none"
+                                    id="usuarioNivel" aria-describedby="Lupa" name="usuarioNivel">
+                                <option value="1">Nível 1</option>
+                                <option value="2">Nível 2</option>
+                                <option value="3">Nível 3</option>
 
-                        </select>
-                    </div>
+                            </select>
+                        </div>
+                    </div><!-- /.form-group -->
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -171,9 +180,7 @@ $clienteController = new ClienteController();
                             ou .png</p>
                         <div class="col-lg-12 text-left"><img src="../imagens/noimg.png" id="preview-da-imagem"
                                                               width="190"
-                                                              height="190" class="img-circle img-responsive"></div>
-
-
+                                                              height="190" class="img-circle"></div>
                     </div>
 
                     <div class="form-group">
@@ -243,7 +250,7 @@ $clienteController = new ClienteController();
     });
 
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $(".select2").select2();
     });
 

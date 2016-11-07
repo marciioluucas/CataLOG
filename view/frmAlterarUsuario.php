@@ -9,7 +9,7 @@
 require_once "protecaoPaginas.php";
 if ($_SESSION["tempo"] < time()) {
     echo "<script>window.location.replace('lockscreen.php')</script>";
-}else{
+} else {
     $_SESSION["tempo"] = time() + 600;
 }
 ?>
@@ -25,11 +25,13 @@ if ($_SESSION["tempo"] < time()) {
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+
+    <link rel="stylesheet" href="../plugins/select2/select2.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
     <!-- Icone-->
-    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="shortcut icon" href="../favicon.ico"/>
     <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -148,6 +150,23 @@ if ($_SESSION["tempo"] < time()) {
                                placeholder="Coloque aqui a senha"
                                value="<?php echo $_GET['senha'] ?>">
                     </div>
+
+                    <div class="form-group">
+                        <label for="usuarioNivel1">Nível</label>
+                        <div class="input-group" style="margin-top: -3px !important;">
+                            <span class="input-group-addon" id="Lupa" style="height: 34px !important;"><i
+                                    class="fa fa-search" aria-hidden="true"></i></span>
+                            <select class="form-control select2"
+                                    style="width: 100%; border-radius: 0 !important; display: none"
+                                    id="usuarioNivel1" aria-describedby="Lupa" name="usuarioNivel1">
+                                <option value="<?php echo $_GET['nivel'] ?>">Nível <?php echo $_GET['nivel'] ?></option>
+                                <option value="1">Nível 1</option>
+                                <option value="2">Nível 2</option>
+                                <option value="3">Nível 3</option>
+
+                            </select>
+                        </div>
+                    </div><!-- /.form-group -->
                 </div>
                 <div class="col-lg-6">
                     <label for="usuarioimagem1">Imagem</label>
@@ -156,15 +175,15 @@ if ($_SESSION["tempo"] < time()) {
                     <p class="help-block">Para melhor vizualização recomendamos imagens 256 x 256 ou maior e do
                         formato .jpg
                         ou .png</p>
-                    <div class="col-lg-3"><img src="../imagens/<?php echo $_GET['imagem'] ?>" id="preview-da-imagem" 
-                                            class="img-circle"   width="190" height="190">
+                    <div class="col-lg-3"><img src="../imagens/<?php echo $_GET['imagem'] ?>" id="preview-da-imagem"
+                                               class="img-circle" width="190" height="190">
                     </div>
                     <!-- /.box-body -->
                     <div class="col-lg-12 text-right">
                         <a onclick="limparcampos();" class="btn btn-danger">Limpar campos</a>
                         <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Alterar">
                     </div>
-                    
+
                 </div>
         </form>
     </div>
@@ -172,6 +191,8 @@ if ($_SESSION["tempo"] < time()) {
 <!-- jQuery 2.1.4 -->
 <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
+
+<script src="../plugins/select2/select2.full.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="../plugins/fastclick/fastclick.min.js"></script>
@@ -187,10 +208,10 @@ if ($_SESSION["tempo"] < time()) {
 <script src="js/require.min.js"></script>
 
 <script>
-    $(window).resize(function(){
+    $(window).resize(function () {
         $("body").setHeight($(window).height());
     });
-    
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader1 = new FileReader();
@@ -204,6 +225,9 @@ if ($_SESSION["tempo"] < time()) {
 
     $("#usuarioimagem1").change(function () {
         readURL(this);
+    });
+    $(document).ready(function () {
+        $(".select2").select2();
     });
 
 
