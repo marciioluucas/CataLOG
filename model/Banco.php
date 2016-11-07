@@ -219,6 +219,7 @@ class Banco
     {
 
         $sql = "UPDATE " . $tabela . " SET " . $campos_eq_valores . " WHERE " . " id = " . $id;
+        echo $sql;
         $this->query = $this->query($sql);
         $this->resultQuery = mysqli_affected_rows($this->conexao());
 //        echo $this->query;
@@ -374,14 +375,6 @@ class Banco
 //        });
       });
     </script>
-    <script>
-    
-           $(window).ready(function() {
-                $(window).resize(function(){
-        $(\"body\").setHeight($(window).height());
-    })
-           });
-       </script>
              </body>
               </html>";
 

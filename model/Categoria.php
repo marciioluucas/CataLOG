@@ -480,8 +480,6 @@ class Categoria extends Banco
         while ($r = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
             echo "<option value='" . $r['id'] . "'>" . $r['nome'] . "</option>";
         }
-
-
     }
 
     function consultarProdutoPorCategoria($id)

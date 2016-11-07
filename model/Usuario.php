@@ -247,9 +247,11 @@ class Usuario extends Banco
     function alterarUsuario()
     {
         if ($this->imagem != null or $this->imagem != "") {
-            $campos_eq_valores = "nome = '$this->nome', email = '$this->email', login = '$this->login', senha = '$this->senha', cliente_id='$this->empresa', imagem = '$this->imagem'";
+            $campos_eq_valores = "nome = '$this->nome', email = '$this->email', login = '$this->login', senha = '$this->senha',
+             cliente_id=$this->empresa, nivel=$this->nivel, imagem = '$this->imagem'";
         } else {
-            $campos_eq_valores = "nome = '$this->nome', email = '$this->email', login = '$this->login', senha = '$this->senha'";
+            $campos_eq_valores = "nome = '$this->nome', email = '$this->email', login = '$this->login', senha = '$this->senha',
+             nivel=$this->nivel, cliente_id=$this->empresa";
         }
         try {
             if ($this->alterar("usuario", $campos_eq_valores, $this->id)) {

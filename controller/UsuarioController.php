@@ -1,6 +1,7 @@
 <?php
 
 require_once("../model/Usuario.php");
+require_once("../model/Cliente.php");
 require_once("../model/Imagem.php");
 
 /**
@@ -88,6 +89,8 @@ class UsuarioController
         $this->usuario->setLogin($_POST['usuarioLogin1']);
         $this->usuario->setSenha($_POST['usuarioSenha1']);
         $this->usuario->setNivel($_POST['usuarioNivel1']);
+        $this->usuario->setEmpresa($_POST['usuarioEmpresa1']);
+//        echo "<script>alert(".$_POST['usuarioEmpresa1'].")</script>";
         if(isset($_FILES['usuarioImagem1']['name'])) {
             $this->imagem->setArquivoNome($_FILES['usuarioImagem1']['name']);
             $this->imagem->setArquivoErro($_FILES['usuarioImagem1']['error']);
@@ -96,8 +99,8 @@ class UsuarioController
             $this->usuario->setImagem($this->imagem->upload());
         }
         echo $this->usuario->alterarUsuario() ? "<script>alert('Alteração de usuario feita com sucesso!'); window.location.replace('UsuarioController.php?q=listar');</script>" :
-        "<script>alert('Erro na alteração de produto'); window.location.replace('UsuarioController.php?q=listar');</script>";
-
+        "<script>alert('Erro na alteração de produto'); </script>";
+//        window.location.replace('UsuarioController.php?q=listar');
     }
 
     private function listar()
@@ -126,6 +129,11 @@ class UsuarioController
     
     public function consultaQuantosProdutosCadastradosPeloUsuario($id_usuario){
         return $this->usuario->retornaNumRegistros("produto","usuario_id = $id_usuario");
+    }
+
+    public function puxarClientePorId($id) {
+        $cliente = new Cliente();
+        return $cliente->puxarClientePorId($id);
     }
 
 

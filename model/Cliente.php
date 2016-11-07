@@ -1,5 +1,6 @@
 <?php
 require_once 'Banco.php';
+
 /**
  * Created by PhpStorm.
  * User: Márcio Lucas
@@ -97,13 +98,11 @@ class Cliente extends Banco
     }
 
 
-
-
     function cadastrarCliente()
     {
         try {
             $this->tabela = "cliente";
-            $this->campos = array("nome", "descricao","tipo","cpf_ou_cnpj","datacriacao");
+            $this->campos = array("nome", "descricao", "tipo", "cpf_ou_cnpj", "datacriacao");
             $this->valores = array($this->nome, $this->descricao, $this->tipo, $this->CPFouCNPJ, date("Y-m-d"));
 
             return $this->cadastrar();
@@ -119,7 +118,7 @@ class Cliente extends Banco
 
         $campos_eq_valores = "nome = '$this->nome', descricao= '$this->descricao',";
         $campos_eq_valores .= "tipo='$this->tipo', cpf_ou_cnpj='$this->CPFouCNPJ',";
-        $campos_eq_valores .= "dataultimaalteracao = '".date("Y-m-d")."'";
+        $campos_eq_valores .= "dataultimaalteracao = '" . date("Y-m-d") . "'";
 
         try {
             return $this->alterar("cliente", $campos_eq_valores, $this->id);
@@ -132,7 +131,7 @@ class Cliente extends Banco
     function excluirCliente($id)
     {
         try {
-            return $this->delete("cliente", "ativado = 0, dataexclusao = '".date("Y-m-d")."'", "id=".$id);
+            return $this->delete("cliente", "ativado = 0, dataexclusao = '" . date("Y-m-d") . "'", "id=" . $id);
         } catch (Exception $e) {
             echo "Exceção capturada: " . $e->getMessage();
             return null;
@@ -161,10 +160,25 @@ class Cliente extends Banco
         while ($r = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
             echo "<option value='" . $r['id'] . "'>" . $r['nome'] . "</option>";
         }
-
-
     }
 
-    
+    function puxarClientePorId($id)
+    {
+        $this->tabela = "cliente";
+        $this->condicao = "ativado  =  1 and id = $id";
+        $this->consultar();
+        $r = mysqli_fetch_array($this->query, MYSQLI_ASSOC);
+        if ($this->result > 0) {
+
+
+            if ($this->query) {
+                return "<option selected='selected' value='" . $r['id'] . "'>" . $r['nome'] . "</option>";
+            } else {
+                return "<option selected='selected' value='0'>Nenhum</option>";
+            }
+        }
+
+        return null;
+    }
 
 }

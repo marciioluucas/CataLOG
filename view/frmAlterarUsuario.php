@@ -7,11 +7,16 @@
  */
 
 require_once "protecaoPaginas.php";
+require_once "../controller/ClienteController.php";
+require_once "../controller/UsuarioController.php";
 if ($_SESSION["tempo"] < time()) {
     echo "<script>window.location.replace('lockscreen.php')</script>";
 } else {
     $_SESSION["tempo"] = time() + 600;
 }
+
+$clienteController = new ClienteController();
+$usuarioController = new UsuarioController();
 ?>
 <html>
 <head>
@@ -169,22 +174,43 @@ if ($_SESSION["tempo"] < time()) {
                     </div><!-- /.form-group -->
                 </div>
                 <div class="col-lg-6">
-                    <label for="usuarioimagem1">Imagem</label>
+                    <div class="form-group">
+                        <label for="usuarioImagem">Imagem</label>
 
-                    <input type="file" class="form-control" id="usuarioimagem1" name="usuarioImagem1" multiple>
-                    <p class="help-block">Para melhor vizualização recomendamos imagens 256 x 256 ou maior e do
-                        formato .jpg
-                        ou .png</p>
-                    <div class="col-lg-3"><img src="../imagens/<?php echo $_GET['imagem'] ?>" id="preview-da-imagem"
-                                               class="img-circle" width="190" height="190">
-                    </div>
-                    <!-- /.box-body -->
-                    <div class="col-lg-12 text-right">
-                        <a onclick="limparcampos();" class="btn btn-danger">Limpar campos</a>
-                        <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Alterar">
+                        <input type="file" class="form-control" id="usuarioimagem" name="usuarioImagem">
+                        <p class="help-block">Para melhor vizualização recomendamos imagens 256 x 256 ou maior e do
+                            formato .jpg
+                            ou .png</p>
+                        <div class="col-lg-12 text-left"><img src="../imagens/<?php echo $_GET['imagem']; ?>"
+                                                              id="preview-da-imagem"
+                                                              width="190"
+                                                              height="190" class="img-circle"></div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="usuarioEmpresa">Cliente/Empresa</label>
+                        <div class="input-group" style="margin-top: -3px !important;">
+                            <span class="input-group-addon" id="Lupa" style="height: 34px !important;"><i
+                                    class="fa fa-search"
+                                    aria-hidden="true"></i></span>
+                            <select class="form-control select2"
+                                    style="width: 100%; border-radius: 0 !important; display: none"
+                                    id="usuarioEmpresa" aria-describedby="Lupa" name="usuarioEmpresa1">
+
+                                <option selected="selected" value="0">Nenhuma</option>
+                                <?php echo $usuarioController->puxarClientePorId($_GET['cliente_id']) ?>
+                                <?php $clienteController->consultaClientes() ?>
+                            </select>
+                        </div>
+                    </div><!-- /.form-group -->
                 </div>
+                <!-- /.box-body -->
+                <div class="col-lg-12 text-right">
+                    <a onclick="limparcampos();" class="btn btn-danger">Limpar campos</a>
+                    <input type="submit" class="btn btn-primary" name="enviar" id="enviar" value="Alterar">
+                </div>
+
+            </div>
         </form>
     </div>
 </div>
@@ -226,6 +252,7 @@ if ($_SESSION["tempo"] < time()) {
     $("#usuarioimagem1").change(function () {
         readURL(this);
     });
+
     $(document).ready(function () {
         $(".select2").select2();
     });

@@ -184,7 +184,7 @@ $clienteController = new ClienteController();
                     </div>
 
                     <div class="form-group">
-                        <label for="usuarioEmpresa">Empresa</label>
+                        <label for="usuarioEmpresa">Cliente/Empresa</label>
                         <div class="input-group" style="margin-top: -3px !important;">
                             <span class="input-group-addon" id="Lupa" style="height: 34px !important;"><i
                                     class="fa fa-search"
