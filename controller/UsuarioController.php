@@ -67,6 +67,7 @@ class UsuarioController
         $this->usuario->setEmail($_POST['usuarioEmail']);
         $this->usuario->setLogin($_POST['usuarioLogin']);
         $this->usuario->setSenha($_POST['usuarioSenha']);
+        $this->usuario->setNivel($_POST['usuarioNivel']);
         $this->usuario->setEmpresa($_POST['usuarioEmpresa']);
         $this->imagem->setArquivoNome($_FILES['usuarioImagem']['name']);
         $this->imagem->setArquivoErro($_FILES['usuarioImagem']['error']);
@@ -86,6 +87,7 @@ class UsuarioController
         $this->usuario->setEmail($_POST['usuarioEmail1']);
         $this->usuario->setLogin($_POST['usuarioLogin1']);
         $this->usuario->setSenha($_POST['usuarioSenha1']);
+        $this->usuario->setNivel($_POST['usuarioNivel1']);
         if(isset($_FILES['usuarioImagem1']['name'])) {
             $this->imagem->setArquivoNome($_FILES['usuarioImagem1']['name']);
             $this->imagem->setArquivoErro($_FILES['usuarioImagem1']['error']);

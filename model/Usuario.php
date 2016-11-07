@@ -232,15 +232,14 @@ class Usuario extends Banco
     {
         try {
             $this->tabela = "usuario";
-            $this->campos = array("nome", "email", "login", "senha","cliente_id", "imagem");
-            $this->valores = array($this->getNome(), $this->getEmail(), $this->getLogin(), $this->getSenha(), $this->getEmpresa(), $this->getImagem());
+            $this->campos = array("nome", "email", "login", "senha","nivel","cliente_id", "imagem");
+            $this->valores = array($this->getNome(), $this->getEmail(), $this->getLogin(), $this->getSenha(), $this->getNivel(), $this->getEmpresa(), $this->getImagem());
 
             return $this->cadastrar();
         } catch (Exception $e) {
             echo "Exceção capturada: " . $e->getMessage();
             return null;
         }
-
     }
 
     function alterarUsuario()
@@ -256,9 +255,9 @@ class Usuario extends Banco
                 return true;
             }
         } catch (Exception $e) {
-            return "Exceção capturada: " . $e->getMessage();
-
+           throw new Exception("Excessão Capturada.",0);
         }
+        return false;
     }
 
     function excluirUsuario($id)
