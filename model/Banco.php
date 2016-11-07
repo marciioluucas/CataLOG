@@ -294,7 +294,7 @@ class Banco
             while ($r = mysqli_fetch_array($this->query, MYSQLI_ASSOC)) {
                 echo "<tr>";
                 for ($i = 0; $i < count($this->campos) - $this->subQntColunasConsulTabela; $i++) {
-                    echo strtoupper("<td>" . str_replace("_"," ", $r[$this->campos[$i]]) . "</td>");
+                    echo strtoupper("<td>" . $r[$this->campos[$i]] . "</td>");
                 }
                 for ($i = 0; $i < $cont; $i++) {
                     if ($i < $cont - 1) {
