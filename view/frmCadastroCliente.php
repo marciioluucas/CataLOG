@@ -104,12 +104,12 @@ if ($_SESSION["tempo"] < time()) {
     <section class="content-header">
         <h1>
             Cadastro
-            <small>de empresa</small>
+            <small>de cliente/empresa</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li class="">Empresa</li>
-            <li class="">Cadastro de empresa</li>
+            <li class="">Cliente/Empresa</li>
+            <li class="">Cadastro de cliente/empresa</li>
         </ol>
     </section>
     <form action="../controller/ClienteController.php" method="post"
@@ -120,13 +120,13 @@ if ($_SESSION["tempo"] < time()) {
                 <div class="form-group">
                     <label for="clienteNome">Nome</label>
                     <input type="text" class="form-control" id="clienteNome" name="clienteNome" required
-                           placeholder="Aqui você pode colocar o nome do cliente">
+                           placeholder="Aqui você pode colocar o nome do cliente/empresa">
                 </div>
                 <div class="form-group">
                     <label for="clienteNome">Descrição</label>
                         <textarea class="form-control" id="clienteNome" name="clienteDescricao" required
                                   style="resize: none; height: 100px;"
-                                  placeholder="Para fins de filtros de pesquisa. Com breves palavras, descreva o cliente."></textarea>
+                                  placeholder="Para fins de filtros de pesquisa. Com breves palavras, descreva o cliente/empresa."></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tipos">Tipo</label>
@@ -150,7 +150,7 @@ if ($_SESSION["tempo"] < time()) {
                 <div class="form-group">
                     <label for="identificacao" id="lblIdentificacao">CPF</label>
                     <input type="text" class="form-control" id="identificacao" name="clienteIdentificacao" required
-                           placeholder="Colo aqui o CPF ou CPNJ">
+                           placeholder="Coloque aqui o CPF ou CPNJ">
                 </div>
 
 

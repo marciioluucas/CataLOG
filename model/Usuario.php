@@ -162,15 +162,15 @@ class Usuario extends Banco
     {
         $this->empresa = $empresa;
     }
-    
-    
+
 
     function logar($login_ou_email, $senha, $tela)
     {
-        if(isset($_SESSION)){
-            session_destroy();
-        }
+//        if(isset($_SESSION)){
+//            session_destroy();
+//        }
         session_start();
+
         $this->tabela = "usuario";
         $this->condicao = "login = '$login_ou_email' or email = '$login_ou_email' AND senha = '$senha'";
         echo $this->getSql();
@@ -178,6 +178,7 @@ class Usuario extends Banco
         $resultado = mysqli_fetch_array($this->query, MYSQLI_ASSOC);
         if (mysqli_num_rows($this->query) > 0) {
             if (($login_ou_email == $resultado['login'] || $login_ou_email == $resultado['email']) && $senha == $resultado['senha']) {
+
                 $_SESSION['idUsuario'] = $resultado['id'];
                 $_SESSION['nomeUsuario'] = $resultado['nome'];
                 $_SESSION['emailUsuario'] = $resultado['email'];
@@ -193,17 +194,17 @@ class Usuario extends Banco
 
                 if ($tela == "login" && $_SESSION['nivelUsuario'] > 1) {
                     header('Location: ../view/index.php');
-                    session_name("loginUsuario");
-                }else{
+                    session_name(md5(uniqid("Sessao-Login-Usuario" . time() . md5(date("Y-m-d") * 1231 / 3))));
+                } else {
+                    session_name(md5(uniqid("Sessao-Login-Usuario-Comum" . time() . md5(date("Y-m-d") * 1231 / 3))));
                     header('Location: ../view/indexDashComum.php');
-                    session_name("loginUsuarioComum");
                 }
                 if ($tela == "lockscreen" && $_SESSION['nivelUsuario'] > 1) {
-                    session_name("loginUsuario");
+                    session_name(md5(uniqid("Sessao-Login-Usuario" . time() . md5(date("Y-m-d") * 1231 / 3))));
                     header('Location: ../view/dashboard.php');
                 }
-                if($_SESSION['nivelUsuario'] >= 1 && $tela == "loginC"){
-                    session_name('loginUsuarioComum');
+                if ($_SESSION['nivelUsuario'] >= 1 && $tela == "loginC") {
+                    session_name(md5(uniqid("Sessao-Login-Usuario-Comum" . time() . md5(date("Y-m-d") * 1231 / 3))));
                     header('Location: ../view/indexDashComum.php');
                 }
                 exit();
@@ -215,14 +216,15 @@ class Usuario extends Banco
         }
     }
 
-    function deslogar($tela) {
+    function deslogar($tela)
+    {
         session_start();
         session_destroy();
-        if($tela == "usr"){
+        if ($tela == "usr") {
 
             header('Location: ../view/login.php');
         }
-        if($tela == "usrComum"){
+        if ($tela == "usrComum") {
             header('Location: ../view/loginUsuarioComum.php');
         }
         exit;
@@ -232,7 +234,7 @@ class Usuario extends Banco
     {
         try {
             $this->tabela = "usuario";
-            $this->campos = array("nome", "email", "login", "senha","nivel","cliente_id", "imagem");
+            $this->campos = array("nome", "email", "login", "senha", "nivel", "cliente_id", "imagem");
             $this->valores = array($this->getNome(), $this->getEmail(), $this->getLogin(), $this->getSenha(), $this->getNivel(), $this->getEmpresa(), $this->getImagem());
 
             return $this->cadastrar();
@@ -255,7 +257,7 @@ class Usuario extends Banco
                 return true;
             }
         } catch (Exception $e) {
-           throw new Exception("Excessão Capturada.",0);
+            throw new Exception("Excessão Capturada.", 0);
         }
         return false;
     }
@@ -271,8 +273,6 @@ class Usuario extends Banco
     }
 
 
-
-    
     function listarUsuario()
     {
         $this->tabela = "usuario";
