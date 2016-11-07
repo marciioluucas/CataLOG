@@ -136,7 +136,9 @@ class Arquivo extends Banco
                     <td data-title=\"#\">" . $i++ . "</td>
                     <td data-title=\"Nome do arquivo\">" . $r['identificador'] . "</td>
                     <td data-title=\"Extensão\" class=\"numeric\">" . strtoupper($r['extensao']) . "</td>
-                    <td data-title=\"Visualizar\" class=\"numeric\" style='text-align: center'><a href='../controller/ArquivoController.php?forcarDownload=true&arquivo=".$r['nome_original']."'><i class=\"fa fa-download\" aria-hidden=\"true\"></i></a></td>
+                    <td data-title=\"Visualizar\" class=\"numeric\" style='text-align: center'>
+                    <a href='../controller/ArquivoController.php?forcarDownload=true&arquivo=".str_replace("../arquivos/","",$r['caminho'])."'>
+                    <i class=\"fa fa-download\" aria-hidden=\"true\"></i></a></td>
                     <td data-title=\"Baixar\" class=\"numeric\" style='text-align: center'><a href='" . $r['caminho'] . "'><i class=\"fa fa-eye\" aria-hidden=\"true\"></i></a></td>
 
                 </tr>";

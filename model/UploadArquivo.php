@@ -145,7 +145,7 @@ class UploadArquivo extends Banco
                         try {
                             $this->tabela = "arquivo";
                             $this->campos = array("caminho", "extensao", "nome_original");
-                            $this->valores = array($this->arquivoDestino, $this->arquivoExtensao, "mupload".$this->arquivoNovoNome . "." . $this->arquivoExtensao);
+                            $this->valores = array($this->arquivoDestino, $this->arquivoExtensao, $this->arquivoNome);
                             if ($this->cadastrar()) {
                                 $this->condicao = "caminho = '$this->arquivoDestino'";
                                 $this->consultar();
