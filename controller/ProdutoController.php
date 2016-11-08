@@ -316,6 +316,10 @@ class ProdutoController
         return $this->produto->excluirImagemPrincipal($idProduto);
     }
 
+    public function retornaImagensSecundarias($idProduto) {
+        return $this->produto->retornaImagensSecundarias($idProduto);
+    }
+
 }
 
 

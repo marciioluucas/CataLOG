@@ -787,19 +787,19 @@ class Produto extends Banco
 
     function consultarNumeroImagensNoProduto($idProduto)
     {
-    
+
         $sql = "SELECT * FROM IMAGEM WHERE produto_id=" . $idProduto;
-        
+
         $query = $this->query($sql);
-        
+
         return mysqli_num_rows($query);
-        
+
     }
 
     function listarImagensProduto($idProduto, $qntImagens)
     {
         $sql = "SELECT * FROM IMAGEM WHERE produto_id=" . $idProduto;
-        
+
         $query = $this->query($sql);
         $i = 0;
         $retorno = "a";
@@ -816,22 +816,47 @@ class Produto extends Banco
         return $retorno;
     }
 
-    function excluirImagemSecundaria($idProduto, $posicao) {
+    function excluirImagemSecundaria($idProduto, $posicao)
+    {
         $sql = "delete from imagem where produto_id = $idProduto and posicao = $posicao";
         echo $sql;
-        if($this->query($sql)){
+        if ($this->query($sql)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    function excluirImagemPrincipal($idProduto){
+    function excluirImagemPrincipal($idProduto)
+    {
         $sql = "update produto set imagem = '' where id = $idProduto";
-        if($this->query($sql)){
-           return true;
-        }else{
+        if ($this->query($sql)) {
+            return true;
+        } else {
             return false;
         }
+    }
+
+    function retornaImagensSecundarias($idProduto)
+    {
+        $this->tabela = "imagem";
+        $this->campos = "caminho";
+        $this->condicao = "produto_id=" . $idProduto;
+        $this->listarUsandoSQL();
+        $retorno = "";
+        $count = 0;
+        while ($r = mysqli_fetch_array($this->query)) {
+
+            if ($count == $this->result - 1) {
+                $retorno .= $r['caminho'];
+            } else {
+                $retorno .= $r['caminho'] . ", ";
+
+            }
+            $count++;
+        }
+
+        return $retorno;
+
     }
 }

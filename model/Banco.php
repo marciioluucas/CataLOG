@@ -594,4 +594,5 @@ class Banco
     public function retornaSQLInnerJoinSemSelect($tabelaEsq, $tabelaDir, $fk, $pk){
         return "$tabelaEsq inner join $tabelaDir on $fk = $pk";
     }
+
 }

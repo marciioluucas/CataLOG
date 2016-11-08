@@ -5,10 +5,12 @@ $confSistemaController = new ConfSistemaController();
 $produtoController = new ProdutoController();
 $toString = "";
 $qntImagens = $produtoController->retornaNumeroDeImagensNoProduto($_GET['id']);
-$stringArray = $produtoController->retornaAlgoDoProdutoQueEuQueira("imagem", $_GET['id']);;
+$stringArray = $produtoController->retornaImagensSecundarias($_GET['id']);
 
-$arrayImagens = explode('-', $stringArray);
 
+$arrayImagens = explode(', ', $stringArray);
+
+echo "<script>alert('".count($arrayImagens)."')</script>"
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" class="">
@@ -265,7 +267,7 @@ $arrayImagens = explode('-', $stringArray);
                             }
                             ?>
                             <?php
-                            if (count($arrayImagens) > 5) {
+                            if (count($arrayImagens) > 4) {
                                 echo " <td style='width: 20px'>
                             <button class='next' data-action='next'></button>
                         </td>";
